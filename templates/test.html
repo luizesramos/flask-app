@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% block title%}Super Heroes {% endblock %}
+{% block content %}
+
+<div class="container">
+    <div class="row">
+        <h3>List of Known Super Heroes</h3>
+    </div>
+
+    <div class="row dark">
+        {% for hero in dataset %}
+        <div class="col-3">
+            {{hero[0]}}
+        </div>
+        <div class="col-3">
+            {% if hero[1] == 'DC' %}
+            <button type="button" class="btn btn-primary">DC</button>
+            {% else %}
+            <button type="button" class="btn btn-danger">Marvel</button>
+            {% endif%}
+        </div>
+        {% endfor %}
+    </div>
+</div>
+
+{% endblock %}
