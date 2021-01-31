@@ -54,7 +54,7 @@ Setup gunicorn (HTTP server) in our project
 ```
 source ./venv/bin/activate
 pip install gunicorn
-echo "web: gunicorn app:flask-app" > Procfile
+echo "web: gunicorn flask-app:app" > Procfile
 pip freeze > requirements.txt
 deactivate
 ```
@@ -70,6 +70,5 @@ git commit -am "Initial commit"
 heroku login
 heroku create flask-app11233
 git push heroku master
-heroku ps
-heroku logs -t
+heroku logs --tail
 ```
