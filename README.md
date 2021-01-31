@@ -54,7 +54,7 @@ Setup gunicorn (HTTP server) in our project
 ```
 source ./venv/bin/activate
 pip install gunicorn
-echo "web: gunicorn app:app" > Procfile
+echo "web: gunicorn app:flask-app" > Procfile
 pip freeze > requirements.txt
 deactivate
 ```
