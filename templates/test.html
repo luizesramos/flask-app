@@ -3,24 +3,28 @@
 {% block content %}
 
 <div class="container">
-    <div class="row">
+    <div class="d-flex row-xl-12 justify-content-center">
         <h3>List of Known Super Heroes</h3>
     </div>
 
-    <div class="row dark">
-        {% for hero in dataset %}
-        <div class="col-3">
-            {{hero[0]}}
-        </div>
-        <div class="col-3">
-            {% if hero[1] == 'DC' %}
-            <button type="button" class="btn btn-primary">DC</button>
+    {% for hero in dataset %}
+    <div class="d-flex row justify-content-sm-center">
+        <div class="col-3 text-end">
+            {% if hero[0] == selected_hero %}
+            <h4>{{hero[0]}}</h4>
             {% else %}
-            <button type="button" class="btn btn-danger">Marvel</button>
+            {{hero[0]}}
+            {% endif %}
+        </div>
+        <div class="d-flex col-3 text-center">
+            {% if hero[1] == 'DC' %}
+            <div class="btn btn-primary btn-block" style="width:40%">DC</div>
+            {% else %}
+            <div class="btn btn-danger btn-block" style="width:40%">Marvel</div>
             {% endif%}
         </div>
-        {% endfor %}
     </div>
+    {% endfor %}
 </div>
 
 {% endblock %}

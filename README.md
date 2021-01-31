@@ -39,3 +39,12 @@ Install flask in the virtual enviroment
 Deactivate the virtual environment
 
 `deactivate`
+
+# Push app to Heroku
+
+Install heroku
+
+```
+brew install heroku/brew/heroku
+heroku update
+```
