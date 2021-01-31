@@ -54,7 +54,11 @@ Setup gunicorn (HTTP server) in our project
 ```
 source ./venv/bin/activate
 pip install gunicorn
-echo "web: gunicorn flask-app:app" > Procfile
+
+# Note: "main" is because my Flask app is declared in "main.py"
+# Note: "app" is the name of my Flask object "app = Flask(__name__)"
+echo "web: gunicorn main:app" > Procfile
+
 pip freeze > requirements.txt
 deactivate
 ```
