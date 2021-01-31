@@ -16,7 +16,7 @@ Install brew
 ```
 
 Install python3 (implicitly installs pip3)
-brew install python3
+`brew install python3`
 
 # Create the application project and virtual environment
 
@@ -30,7 +30,7 @@ python3 -m venv venv
 
 Activate the virtual environment
 
-`source .venv/bin/activate`
+`source ./venv/bin/activate`
 
 Install flask in the virtual enviroment
 
@@ -42,9 +42,34 @@ Deactivate the virtual environment
 
 # Push app to Heroku
 
-Install heroku
+Install the Heroku command line interface
 
 ```
 brew install heroku/brew/heroku
 heroku update
+```
+
+Setup gunicorn (HTTP server) in our project
+
+```
+source ./venv/bin/activate
+pip install gunicorn
+echo "web: gunicorn app:app" > Procfile
+pip freeze > requirements.txt
+deactivate
+```
+
+Push to Heroku and check the deployment status and logs
+
+```
+# if you haven't done it, create a repo
+git init
+git commit -am "Initial commit"
+
+# create a heroku app
+heroku login
+heroku create flask-app11233
+git push heroku master
+heroku ps
+heroku logs -t
 ```
